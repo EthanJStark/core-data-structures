@@ -230,7 +230,7 @@ describe('LinkedList', () => {
     })
   })
 
-  context('insertBefore(query, newData)', () => {
+  context('insertAfter(query, newData)', () => {
     it('Inserts a node (with newData) before the first node containing query', () => {
       const myLinkedList = new LinkedList()
       myLinkedList.insert( 'a' )
@@ -239,7 +239,7 @@ describe('LinkedList', () => {
       myLinkedList.insert( 'e' )
       myLinkedList.insert( 'f' )
       myLinkedList.insert( 'g' )
-      expect(() => myLinkedList.insertBefore( 'd', 'c' ) )
+      expect(() => myLinkedList.insertAfter( 'd', 'c' ) )
         .to.alter(() => myLinkedList.size(), { from: 6, to: 7 })
       expect( myLinkedList.contains( 'c' )).to.be.true
       expect( myLinkedList.find( 'd' )._next._data).to.deep.equal( 'c' )
@@ -252,7 +252,7 @@ describe('LinkedList', () => {
       myLinkedList.insert( 'b' )
       myLinkedList.insert( 'a' )
       myLinkedList.insert( 'b' )
-      expect(() => myLinkedList.insertBefore( 'a', 'c' ) )
+      expect(() => myLinkedList.insertAfter( 'a', 'c' ) )
         .to.alter(() => myLinkedList.size(), { from: 4, to: 5 })
       expect( myLinkedList.contains( 'c' )).to.be.true
       expect( myLinkedList.find( 'a' )._next._data).to.deep.equal( 'c' )
@@ -266,7 +266,7 @@ describe('LinkedList', () => {
       myLinkedList.insert( 'd' )
       myLinkedList.insert( 'e' )
       myLinkedList.insert( 'f' )
-      expect(() => myLinkedList.insertBefore( 'b', 'a' ) )
+      expect(() => myLinkedList.insertAfter( 'b', 'a' ) )
         .to.alter(() => myLinkedList.size(), { from: 5, to: 6 })
       expect( myLinkedList.contains( 'a' )).to.be.true
       expect( myLinkedList.find( 'b' )._next._data).to.deep.equal( 'a' )
@@ -281,7 +281,7 @@ describe('LinkedList', () => {
       myLinkedList.insert( 'c' )
       myLinkedList.insert( 'd' )
       myLinkedList.insert( 'f' )
-      expect(() => myLinkedList.insertBefore( 'f', 'e' ) )
+      expect(() => myLinkedList.insertAfter( 'f', 'e' ) )
         .to.alter(() => myLinkedList.size(), { from: 5, to: 6 })
       expect( myLinkedList.contains( 'e' )).to.be.true
       expect( myLinkedList.find( 'f' )._next._data).to.deep.equal( 'e' )
@@ -289,7 +289,7 @@ describe('LinkedList', () => {
     })
   })
 
-  context('insertAfter(query, newData)', () => {
+  context('insertBefore(query, newData)', () => {
     it('Inserts a node (with newData) after the first node containing query', () => {
       const myLinkedList = new LinkedList()
       myLinkedList.insert( 'a' )
@@ -298,7 +298,7 @@ describe('LinkedList', () => {
       myLinkedList.insert( 'e' )
       myLinkedList.insert( 'f' )
       myLinkedList.insert( 'g' )
-      expect(() => myLinkedList.insertAfter( 'b', 'c' ) )
+      expect(() => myLinkedList.insertBefore( 'b', 'c' ) )
         .to.alter(() => myLinkedList.size(), { from: 6, to: 7 })
       expect( myLinkedList.contains( 'c' )).to.be.true
       expect( myLinkedList.find( 'd' )._next._data).to.deep.equal( 'c' )
@@ -311,7 +311,7 @@ describe('LinkedList', () => {
       myLinkedList.insert( 'c' )
       myLinkedList.insert( 'd' )
       myLinkedList.insert( 'e' )
-      expect(() => myLinkedList.insertAfter( 'a', 'b' ) )
+      expect(() => myLinkedList.insertBefore( 'a', 'b' ) )
         .to.alter(() => myLinkedList.size(), { from: 4, to: 5 })
       expect( myLinkedList.contains( 'b' )).to.be.true
       expect( myLinkedList.find( 'b' )._next._data).to.deep.equal( 'a' )
@@ -326,7 +326,7 @@ describe('LinkedList', () => {
       myLinkedList.insert( 'c' )
       myLinkedList.insert( 'd' )
       myLinkedList.insert( 'e' )
-      expect(() => myLinkedList.insertAfter( 'e', 'f' ) )
+      expect(() => myLinkedList.insertBefore( 'e', 'f' ) )
         .to.alter(() => myLinkedList.size(), { from: 5, to: 6 })
       expect( myLinkedList.contains( 'f' )).to.be.true
       expect( myLinkedList.find( 'f' )._next._data).to.deep.equal( 'e' )

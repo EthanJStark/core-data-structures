@@ -103,7 +103,7 @@ export default class LinkedList {
     return false
   }
 
-  insertBefore( query, newData ) {
+  insertAfter( query, newData ) {
     const targetNode = this.find( query )
     if ( targetNode != -1) {
       const newNode = new Node( newData )
@@ -116,7 +116,7 @@ export default class LinkedList {
     }
   }
 
-  insertAfter( query, newData ) {
+  insertBefore( query, newData ) {
     const newNode = new Node( newData )
     if ( this.getHeadNode()._data == query ) {
       this.insert(newData)
